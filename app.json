@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "valorantstore",
     "name": "valorant-shop",
     "slug": "valorant-shop",
     "version": "1.0.0",
@@ -21,10 +22,16 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.dave7788.valorantshop"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c39779eb-25f8-4d6d-a13a-3e1999f92d34"
+      }
     }
   }
 }
