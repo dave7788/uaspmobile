@@ -22,3 +22,5 @@ Aplikasi Mobile Store untuk top-up Valorant Points (VP) yang dibangun menggunaka
 - **Navigation**: React Navigation (Stack Navigation).
 - **Styling**: Native Base / StyleSheet (Tailwind-like design).
 - **Build Tool**: EAS (Expo Application Services) untuk generate APK.
+
+- **APK Download Link**: https://expo.dev/artifacts/eas/ghubBJ7xjMuzSSQnezksBj.apk
