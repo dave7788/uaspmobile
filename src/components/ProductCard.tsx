@@ -7,9 +7,10 @@ export default function ProductCard({ item, onPress, selected = false }: any) {
 
   const onShare = async () => {
     try {
-      // Membuat format pesan seperti contoh yang kamu minta
+      // Menambahkan info bonus di pesan share
+      const bonusText = item.bonus > 0 ? `+ Bonus ${item.bonus} VP` : '';
       await Share.share({
-        message: `Check out this VP Promo: ${item.vp} VP!\n\nhttps://valorant-shop-ochre.vercel.app/product/${item.id}`,
+        message: `🎮 Valorant Promo: ${item.vp} VP ${bonusText}!\nHanya Rp ${item.price?.toLocaleString()}\n\nCek di sini: https://valorant-shop-ochre.vercel.app/product/${item.id}`,
       });
     } catch (error: any) {
       console.error("Error sharing:", error.message);
@@ -35,7 +36,15 @@ export default function ProductCard({ item, onPress, selected = false }: any) {
             <Text style={styles.badgeText}>POPULER</Text>
           </View>
         )}
+        
+        {/* Menampilkan VP Utama */}
         <Text style={[styles.vpText, { color: textColor }]}>{item.vp} VP</Text>
+        
+        {/* Menampilkan Bonus VP jika ada */}
+        {item.bonus > 0 && (
+          <Text style={styles.bonusText}>+{item.bonus} Bonus</Text>
+        )}
+        
         <Text style={styles.priceText}>Rp {item.price?.toLocaleString()}</Text>
       </TouchableOpacity>
 
@@ -70,6 +79,12 @@ const styles = StyleSheet.create({
   },
   badgeText: { color: 'white', fontSize: 10, fontWeight: 'bold' },
   vpText: { fontSize: 20, fontWeight: 'bold' },
+  bonusText: { 
+    fontSize: 12, 
+    color: '#10b981', // Warna hijau untuk indikasi bonus
+    fontWeight: 'bold',
+    marginTop: -2 
+  },
   priceText: { fontSize: 14, color: '#f97316', marginTop: 5, fontWeight: '600' },
   shareBtn: {
     backgroundColor: 'rgba(249, 115, 22, 0.1)',
