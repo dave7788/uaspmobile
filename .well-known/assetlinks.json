@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.dave7788.valorantshop",
+    "sha256_cert_fingerprints": [
+      "A0:93:03:DD:62:BB:46:B2:69:94:50:D9:4B:E4:A8:E7:17:42:C3:F4:2F:3E:C5:D1:76:9B:8E:41:1C:C3:67:BA"
+    ]
+  }
+}]

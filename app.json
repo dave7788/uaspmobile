@@ -32,7 +32,7 @@
           "data": [
             {
               "scheme": "https",
-              "host": "valorantstore.app"
+              "host": "valorant-shop-ochre.vercel.app"
             },
             {
               "scheme": "valorantstore"

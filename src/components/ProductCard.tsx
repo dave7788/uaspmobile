@@ -9,7 +9,7 @@ export default function ProductCard({ item, onPress, selected = false }: any) {
     try {
       // Membuat format pesan seperti contoh yang kamu minta
       await Share.share({
-        message: `Check out this VP Promo: ${item.vp} VP!\n\nhttps://valorantstore.app/product/${item.id}`,
+        message: `Check out this VP Promo: ${item.vp} VP!\n\nhttps://valorant-shop-ochre.vercel.app/product/${item.id}`,
       });
     } catch (error: any) {
       console.error("Error sharing:", error.message);
