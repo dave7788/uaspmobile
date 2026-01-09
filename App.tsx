@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Toast from 'react-native-toast-message';
 import * as Linking from 'expo-linking';
 
-// Import Screen - Pastikan path benar dan file tujuan memiliki 'export default'
+// Import Screen - Pastikan path benar
 import LoginScreen from './src/screens/Login';
 import HomeScreen from './src/screens/HomeScreen';         
 import UserHomeScreen from './src/screens/UserHomeScreen'; 
@@ -14,19 +14,28 @@ import HistoryScreen from './src/screens/HistoryScreen';
 
 const Stack = createNativeStackNavigator();
 
+// 1. Buat prefix untuk Deep Link
 const prefix = Linking.createURL('/');
 
 export default function App() {
+  // 2. Konfigurasi Linking yang diperluas
   const linking = {
-    prefixes: [prefix],
+    // prefixes menerima array agar bisa handle scheme app dan link website (https)
+    prefixes: [prefix, 'https://valorantstore.app', 'valorantstore://'],
     config: {
       screens: {
         Login: 'login',
         Home: 'admin',
         UserHome: 'shop',
         HistoryScreen: 'history',
-        DetailScreen: 'edit/:productId', 
         AddItemScreen: 'add',
+        // Update DetailScreen untuk handle path 'product/:productId' sesuai kodingan Share tadi
+        DetailScreen: {
+          path: 'product/:productId',
+          parse: {
+            productId: (id: string) => id,
+          },
+        },
       },
     },
   };
@@ -43,7 +52,7 @@ export default function App() {
             name="DetailScreen" 
             component={DetailScreen} 
             options={{ 
-              title: 'Edit Produk',
+              title: 'Detail Produk', // Diubah dari 'Edit Produk' agar lebih umum bagi User/Admin
               headerStyle: { backgroundColor: '#f97316' },
               headerTintColor: '#fff',
             }} 
